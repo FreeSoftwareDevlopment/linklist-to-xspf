@@ -15,5 +15,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: gpp
       run: g++ -std=c++17 "linklist to playlist.xspf.cpp"
+    - name: prepare test
+      run: echo https://example.com/example.mp4 | tee example.txt
     - name: test
-      run: ./a.out
+      run: ./a.out example.txt
+    - name: output
+      run: cat example.xspf
