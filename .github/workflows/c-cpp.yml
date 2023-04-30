@@ -21,3 +21,13 @@ jobs:
       run: ./a.out example.txt
     - name: output
       run: cat example.xspf
+  testw:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: cl
+      run: cl /EHsc /std:c++17 "linklist to playlist.xspf.cpp"
+    - name: test
+      run: "linklist to playlist.xspf.exe"
